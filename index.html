@@ -3,356 +3,115 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Astral AI automates internal operations with agentic AI, hybrid cloud, and decision intelligence." />
-  <title>Astral AI — Autonomous Intelligence for Enterprise Operations</title>
+  <meta name="description" content="Astral AI builds autonomous finance-aware operations: hybrid cloud, agentic AI, FinOps + AIOps, and decision simulation." />
+  <title>Astral AI — Futuristic Financial Operations Intelligence</title>
+
   <style>
     :root{
-      --bg:#070A12;
-      --panel:#0C1020;
-      --panel2:#0B1226;
-      --text:#EAF0FF;
-      --muted:#B6C2E2;
-      --faint:#7E8AAE;
-      --accent:#7C5CFF;
-      --accent2:#20D3EE;
-      --good:#2BE7A7;
+      --bg:#05070f;
+      --panel:#090c1a;
+      --panel2:#070b18;
+      --text:#eaf0ff;
+      --muted:#b9c6ee;
+      --faint:#7c88b2;
+
+      --accent:#7c5cff;    /* violet */
+      --accent2:#20d3ee;   /* cyan */
+      --good:#2be7a7;      /* mint */
+      --warn:#ffcc66;      /* amber */
+      --bad:#ff5c7a;       /* pink/red */
+
       --border:rgba(255,255,255,.12);
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --border2:rgba(124,92,255,.28);
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
       --radius:18px;
       --max:1120px;
+
       --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
+
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
-      margin:0; font-family:var(--font); color:var(--text); background: radial-gradient(1200px 800px at 20% 10%, rgba(124,92,255,.22), transparent 55%),
-      radial-gradient(900px 700px at 85% 20%, rgba(32,211,238,.18), transparent 60%),
-      radial-gradient(900px 700px at 55% 90%, rgba(43,231,167,.10), transparent 60%),
-      var(--bg);
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 15% 10%, rgba(124,92,255,.22), transparent 55%),
+        radial-gradient(900px 700px at 85% 20%, rgba(32,211,238,.18), transparent 60%),
+        radial-gradient(900px 700px at 55% 90%, rgba(43,231,167,.10), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.03), transparent 22%),
+        var(--bg);
       line-height:1.45;
+      overflow-x:hidden;
     }
+
+    /* subtle grid overlay */
+    body:before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 46px 46px;
+      opacity:.08;
+      mix-blend-mode:screen;
+    }
+
     a{color:inherit; text-decoration:none}
+
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px;}
+
     .nav{
       display:flex; justify-content:space-between; align-items:center;
-      padding:14px 16px; border:1px solid var(--border); border-radius:999px;
-      background:rgba(12,16,32,.55); backdrop-filter: blur(10px);
+      padding:14px 16px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(9,12,26,.60);
+      backdrop-filter: blur(10px);
       position:sticky; top:14px; z-index:10;
     }
-    .brand{
-      display:flex; gap:10px; align-items:center; font-weight:800; letter-spacing:.2px;
-    }
+    .brand{display:flex; gap:10px; align-items:center; font-weight:900; letter-spacing:.3px}
     .logo{
-      width:34px; height:34px; border-radius:10px;
+      width:34px; height:34px; border-radius:12px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       box-shadow: 0 10px 30px rgba(124,92,255,.25);
       position:relative;
+      overflow:hidden;
     }
     .logo:after{
-      content:""; position:absolute; inset:7px; border-radius:8px;
-      background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.85), rgba(255,255,255,.1) 55%, transparent 70%);
-      opacity:.55;
+      content:"";
+      position:absolute; inset:-20%;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.85), rgba(255,255,255,.1) 55%, transparent 70%),
+        conic-gradient(from 180deg, rgba(32,211,238,.35), rgba(124,92,255,.22), rgba(43,231,167,.18), rgba(32,211,238,.35));
+      opacity:.35;
+      animation: spin 7s linear infinite;
     }
+    @keyframes spin{
+      from{transform:rotate(0deg)}
+      to{transform:rotate(360deg)}
+    }
+
     .navlinks{display:flex; gap:14px; align-items:center; font-size:14px; color:var(--muted)}
     .navlinks a{padding:8px 10px; border-radius:10px}
     .navlinks a:hover{background:rgba(255,255,255,.06)}
+
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       gap:8px; padding:12px 14px; border-radius:12px;
-      border:1px solid var(--border); background:rgba(255,255,255,.06);
-      color:var(--text); font-weight:650; font-size:14px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.06);
+      color:var(--text); font-weight:750; font-size:14px;
+      cursor:pointer;
     }
     .btn:hover{background:rgba(255,255,255,.10)}
     .btn.primary{
       border:0;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 18px 45px rgba(124,92,255,.20);
+      box-shadow: 0 18px 45px rgba(124,92,255,.22);
     }
     .btn.primary:hover{filter:saturate(1.05) brightness(1.03)}
-    .hero{
-      margin-top:30px;
-      display:grid; grid-template-columns: 1.1fr .9fr; gap:18px;
-      align-items:stretch;
-    }
-    @media (max-width: 980px){
-      .hero{grid-template-columns:1fr}
-      .navlinks{display:none}
-    }
-    .card{
-      border:1px solid var(--border);
-      background: linear-gradient(180deg, rgba(12,16,32,.70), rgba(11,18,38,.55));
-      border-radius:var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .hero-left{padding:34px 28px}
-    .kicker{
-      display:inline-flex; gap:10px; align-items:center;
-      padding:8px 12px; border-radius:999px;
-      border:1px solid rgba(124,92,255,.35);
-      background:rgba(124,92,255,.10);
-      color:var(--muted); font-size:13px;
-    }
-    .dot{width:8px; height:8px; border-radius:50%; background:var(--good)}
-    h1{margin:14px 0 10px; font-size:48px; line-height:1.05; letter-spacing:-.8px}
-    @media (max-width: 520px){h1{font-size:38px}}
-    .sub{color:var(--muted); font-size:16px; max-width:62ch}
-    .cta{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap}
-    .proof{
-      margin-top:20px; display:flex; gap:14px; flex-wrap:wrap; color:var(--faint); font-size:13px
-    }
-    .proof span{display:inline-flex; gap:8px; align-items:center}
-    .proof b{color:var(--text)}
-    .hero-right{padding:22px}
-    .mini{
-      padding:16px; border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-      margin-bottom:12px;
-    }
-    .mini h3{margin:0 0 6px; font-size:15px}
-    .mini p{margin:0; color:var(--muted); font-size:13px}
-    .grid{
-      margin-top:22px;
-      display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;
-    }
-    @media (max-width: 980px){.grid{grid-template-columns:1fr}}
-    .tile{padding:18px}
-    .tile h3{margin:8px 0 6px; font-size:16px}
-    .tile p{margin:0; color:var(--muted); font-size:14px}
-    .icon{
-      width:34px; height:34px; border-radius:12px;
-      background: rgba(124,92,255,.14);
-      border:1px solid rgba(124,92,255,.30);
-      display:flex; align-items:center; justify-content:center;
-      font-weight:900;
-    }
-    .section{margin-top:26px; padding:26px 22px}
-    .section h2{margin:0 0 10px; font-size:22px; letter-spacing:-.2px}
-    .section p{margin:0; color:var(--muted)}
-    .two{
-      margin-top:14px; display:grid; grid-template-columns: 1fr 1fr; gap:14px;
-    }
-    @media (max-width: 980px){.two{grid-template-columns:1fr}}
-    .list{margin:10px 0 0; padding:0; list-style:none}
-    .list li{
-      margin:10px 0; padding-left:24px; position:relative; color:var(--muted)
-    }
-    .list li:before{
-      content:"✓"; position:absolute; left:0; top:0; color:var(--good); font-weight:900
-    }
-    .pricing{
-      margin-top:14px; display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;
-    }
-    @media (max-width: 980px){.pricing{grid-template-columns:1fr}}
-    .price{
-      padding:18px; border-radius:16px; border:1px solid var(--border);
-      background:rgba(255,255,255,.04);
-    }
-    .badge{
-      display:inline-flex; padding:6px 10px; border-radius:999px;
-      background:rgba(32,211,238,.10); border:1px solid rgba(32,211,238,.25);
-      color:var(--muted); font-size:12px; font-weight:700;
-    }
-    .price h3{margin:10px 0 6px; font-size:16px}
-    .money{font-size:28px; font-weight:900; letter-spacing:-.4px}
-    .small{color:var(--faint); font-size:13px}
-    form{
-      margin-top:12px; display:grid; gap:10px;
-    }
-    input, textarea{
-      width:100%; padding:12px 12px; border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(7,10,18,.55);
-      color:var(--text); font-size:14px;
-      outline:none;
-    }
-    input:focus, textarea:focus{border-color: rgba(124,92,255,.60)}
-    textarea{min-height:110px; resize:vertical}
-    footer{margin-top:28px; color:var(--faint); font-size:13px; text-align:center}
-    .hr{height:1px; background:rgba(255,255,255,.10); margin:22px 0}
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <div class="nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>Astral AI</div>
-      </div>
-      <div class="navlinks">
-        <a href="#solution">Solution</a>
-        <a href="#how">How it works</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <a class="btn primary" href="#contact">Book a Discovery Call</a>
-    </div>
-
-    <div class="hero">
-      <div class="card hero-left">
-        <div class="kicker"><span class="dot"></span> Autonomous Intelligence for Enterprise Operations</div>
-        <h1>Make your cloud operations <span style="background:linear-gradient(135deg,var(--accent),var(--accent2)); -webkit-background-clip:text; background-clip:text; color:transparent;">understandable</span> — and <span style="background:linear-gradient(135deg,var(--accent2),var(--good)); -webkit-background-clip:text; background-clip:text; color:transparent;">automated</span>.</h1>
-        <p class="sub">
-          Astral AI upgrades internal operations using hybrid cloud (AWS + Azure), agentic AI (LangChain), and MCP context orchestration.
-          We turn monitoring, workflows, and technical choices into business-readable intelligence — then automate execution.
-        </p>
-
-        <div class="cta">
-          <a class="btn primary" href="#contact">Get a Free Assessment</a>
-          <a class="btn" href="#solution">See What We Deliver</a>
-        </div>
-
-        <div class="proof">
-          <span>✅ <b>20–40%</b> less operational workload</span>
-          <span>✅ <b>15–30%</b> cloud cost optimization</span>
-          <span>✅ <b>30–60%</b> fewer manual tickets</span>
-        </div>
-      </div>
-
-      <div class="card hero-right">
-        <div class="mini">
-          <h3>What Astral AI does</h3>
-          <p>We automate <b>understanding → decision → execution</b> across internal operations.</p>
-        </div>
-        <div class="mini">
-          <h3>What makes it different</h3>
-          <p>Not scripts. Not RPA. We deploy <b>agentic operational systems</b> with context memory and decision simulation.</p>
-        </div>
-        <div class="mini">
-          <h3>Where it fits</h3>
-          <p>Platform Engineering • DevOps • IT Ops • Finance Ops • Security Ops • Leadership reporting</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid" id="solution">
-      <div class="card tile">
-        <div class="icon">☁</div>
-        <h3>Hybrid Cloud Automation</h3>
-        <p>Architect and automate AWS + Azure environments with event-driven workflows and secure guardrails.</p>
-      </div>
-      <div class="card tile">
-        <div class="icon">🤖</div>
-        <h3>Agentic AI Operations</h3>
-        <p>LangChain-powered agents that reason over telemetry, runbooks, tickets, and SOPs to recommend and execute actions.</p>
-      </div>
-      <div class="card tile">
-        <div class="icon">🔮</div>
-        <h3>Decision Intelligence</h3>
-        <p>Simulate cost, risk, and performance impacts <b>before</b> changes are made — in language leadership understands.</p>
-      </div>
-    </div>
-
-    <div class="card section" id="how">
-      <h2>How it works</h2>
-      <p>Astral AI connects to your operational reality: monitoring, logs, costs, workflows, and runbooks — then builds context and automation around it.</p>
-
-      <div class="two">
-        <div class="card tile" style="background:rgba(255,255,255,.03); box-shadow:none;">
-          <h3>1) Observe</h3>
-          <ul class="list">
-            <li>Cloud monitoring + alerts (CloudWatch, Azure Monitor, etc.)</li>
-            <li>DevOps tooling (Jira/Azure DevOps/ServiceNow)</li>
-            <li>Logs, traces, metrics, cost data</li>
-          </ul>
-        </div>
-        <div class="card tile" style="background:rgba(255,255,255,.03); box-shadow:none;">
-          <h3>2) Understand → Predict → Execute</h3>
-          <ul class="list">
-            <li>MCP context mesh maintains operational memory</li>
-            <li>Agents generate insights + recommended actions</li>
-            <li>Auto-create work items and remediation plans</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="card section" id="pricing">
-      <h2>Engagement Phases</h2>
-      <p>Industry-standard delivery model: Discovery → Design → Implementation (optional Managed Ops).</p>
-
-      <div class="pricing">
-        <div class="price">
-          <div class="badge">Phase 1</div>
-          <h3>Discovery</h3>
-          <div class="money">$25K–$35K</div>
-          <div class="small">~3–5 weeks</div>
-          <div class="hr"></div>
-          <ul class="list">
-            <li>Operational blueprint + workflow mapping</li>
-            <li>Automation opportunity scoring + ROI model</li>
-            <li>Executive impact report</li>
-          </ul>
-        </div>
-
-        <div class="price">
-          <div class="badge">Phase 2</div>
-          <h3>Architecture & Design</h3>
-          <div class="money">$35K–$50K</div>
-          <div class="small">~4–6 weeks</div>
-          <div class="hr"></div>
-          <ul class="list">
-            <li>Agent workflows + MCP context strategy</li>
-            <li>AWS/Azure hybrid architecture diagrams</li>
-            <li>Security + compliance + sprint plan</li>
-          </ul>
-        </div>
-
-        <div class="price">
-          <div class="badge">Phase 3</div>
-          <h3>Implementation</h3>
-          <div class="money">$200K+</div>
-          <div class="small">~2–12 months</div>
-          <div class="hr"></div>
-          <ul class="list">
-            <li>Production deployment + integrations</li>
-            <li>Work item automation + runbooks</li>
-            <li>Decision simulation engine rollout</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="card section" id="contact">
-      <h2>Contact Astral AI</h2>
-      <p>Send a message and we’ll reply with next steps and a short intake checklist.</p>
-
-      <!--
-        This uses mailto: so it works without a backend.
-        Replace [YOUR EMAIL] with your real email address.
-      -->
-      <form onsubmit="return openMail(event)">
-        <input id="name" type="text" placeholder="Name" required />
-        <input id="company" type="text" placeholder="Company" />
-        <input id="email" type="email" placeholder="Email" required />
-        <textarea id="message" placeholder="What are you trying to automate? (Ops, monitoring, work items, decision support, etc.)" required></textarea>
-        <button class="btn primary" type="submit">Send Message</button>
-        <div class="small">Prefer email? Write us at <b>[YOUR EMAIL]</b></div>
-      </form>
-    </div>
-
-    <footer>
-      © <span id="year"></span> Astral AI • Autonomous Intelligence for Enterprise Operations
-    </footer>
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    function openMail(e){
-      e.preventDefault();
-      const to = "[YOUR EMAIL]";
-      const name = document.getElementById("name").value.trim();
-      const company = document.getElementById("company").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const msg = document.getElementById("message").value.trim();
-
-      const subject = encodeURIComponent("Astral AI — Discovery Call Request");
-      const body = encodeURIComponent(
-        `Name: ${name}\nCompany: ${company}\nEmail: ${email}\n\nMessage:\n${msg}\n`
-      );
-      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-      return false;
-    }
-  </script>
-</body>
-</html>
+    .btn.gh
